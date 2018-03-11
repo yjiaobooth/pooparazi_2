@@ -1,6 +1,11 @@
 class NeighborhoodsController < ApplicationController
   def index
     @neighborhoods = Neighborhood.all
+    @location_hash = Gmaps4rails.build_markers(@neighborhoods.where.not(:center_address_latitude => nil)) do |neighborhood, marker|
+      marker.lat neighborhood.center_address_latitude
+      marker.lng neighborhood.center_address_longitude
+      marker.infowindow "<h5><a href='/neighborhoods/#{neighborhood.id}'>#{neighborhood.name}</a></h5><small>#{neighborhood.center_address_formatted_address}</small>"
+    end
 
     render("neighborhoods/index.html.erb")
   end
