@@ -63,6 +63,37 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_comment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= @user.id %>">
+
+      <!-- Label and input for helpful_or_not -->
+      <div class="checkbox">
+        <label for="helpful_or_not">
+          <input type="checkbox" id="helpful_or_not" name="helpful_or_not" value="1" <%= "checked" if @comment.helpful_or_not %>>
+          Helpful or not
+        </label>
+      </div>
+
+      <!-- Label and input for bathroom_id -->
+      <div class="form-group">
+        <label for="bathroom_id" class="control-label">
+          Bathroom
+        </label>
+
+        <%= select_tag(:bathroom_id, options_from_collection_for_select(Bathroom.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Comment
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

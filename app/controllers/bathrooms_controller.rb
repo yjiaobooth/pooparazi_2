@@ -6,6 +6,7 @@ class BathroomsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @bathroom = Bathroom.find(params[:id])
 
     render("bathrooms/show.html.erb")
