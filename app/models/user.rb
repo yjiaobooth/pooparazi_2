@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :bathrooms,
+             :through => :comments,
+             :source => :bathroom
+
   # Validations
 
 end
