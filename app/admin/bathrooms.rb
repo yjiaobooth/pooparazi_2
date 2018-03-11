@@ -1,4 +1,6 @@
 ActiveAdmin.register Bathroom do
+
+ permit_params :address, :neiborhood_id, :notes, :comment_id, :public_or_not, :rating_easy_to_find
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
