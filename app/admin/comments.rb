@@ -1,4 +1,6 @@
 ActiveAdmin.register Comment do
+
+ permit_params :user_id, :helpful_or_not, :bathroom_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
