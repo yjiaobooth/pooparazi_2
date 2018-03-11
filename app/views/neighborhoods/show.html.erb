@@ -26,3 +26,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Neighborhood has many bathrooms -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Bathrooms
+      </li>
+
+      <% @neighborhood.bathrooms.each do |bathroom| %>
+        <li class="list-group-item">
+          <a href="/bathrooms/<%= bathroom.id %>">
+            <%= bathroom.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/bathrooms/<%= bathroom.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/bathrooms/<%= bathroom.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bathroom/<%= bathroom.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
