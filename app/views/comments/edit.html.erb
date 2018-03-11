@@ -41,7 +41,7 @@
           Bathroom
         </label>
 
-        <input type="text" id="bathroom_id" name="bathroom_id" placeholder="Bathroom" class="form-control" value="<%= @comment.bathroom_id %>">
+        <%= select_tag(:bathroom_id, options_from_collection_for_select(Bathroom.all, :id, :created_at, @comment.bathroom_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
