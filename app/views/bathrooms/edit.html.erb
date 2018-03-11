@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @bathroom.errors.any? %>
+  <% @bathroom.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Bathroom #<%= @bathroom.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_bathroom/<%= @bathroom.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @bathroom.address %>">
+      </div>
+
+      <!-- Label and input for neiborhood_id -->
+      <div class="form-group">
+        <label for="neiborhood_id" class="control-label">
+          Neiborhood
+        </label>
+
+        <input type="text" id="neiborhood_id" name="neiborhood_id" placeholder="Neiborhood" class="form-control" value="<%= @bathroom.neiborhood_id %>">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @bathroom.notes %></textarea>
+      </div>
+
+      <!-- Label and input for comment_id -->
+      <div class="form-group">
+        <label for="comment_id" class="control-label">
+          Comment
+        </label>
+
+        <input type="text" id="comment_id" name="comment_id" placeholder="Comment" class="form-control" value="<%= @bathroom.comment_id %>">
+      </div>
+
+      <!-- Label and input for public_or_not -->
+      <div class="form-group">
+        <label for="public_or_not" class="control-label">
+          Public or not
+        </label>
+
+        <textarea id="public_or_not" name="public_or_not" placeholder="Public or not" class="form-control" rows="3"><%= @bathroom.public_or_not %></textarea>
+      </div>
+
+      <!-- Label and input for rating_easy_to_find -->
+      <div class="form-group">
+        <label for="rating_easy_to_find" class="control-label">
+          Rating easy to find
+        </label>
+
+        <input type="text" id="rating_easy_to_find" name="rating_easy_to_find" placeholder="Rating easy to find" class="form-control" value="<%= @bathroom.rating_easy_to_find %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Bathroom
+      </button>
+      or
+      <a href="/bathrooms/<%= @bathroom.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

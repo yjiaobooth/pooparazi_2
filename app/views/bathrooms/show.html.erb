@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Bathroom #<%= @bathroom.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Address</dt>
+      <dd><%= @bathroom.address %></dd>
+
+      <dt>Neiborhood</dt>
+      <dd><%= @bathroom.neiborhood_id %></dd>
+
+      <dt>Notes</dt>
+      <dd><%= @bathroom.notes %></dd>
+
+      <dt>Comment</dt>
+      <dd><%= @bathroom.comment_id %></dd>
+
+      <dt>Public or not</dt>
+      <dd><%= @bathroom.public_or_not %></dd>
+
+      <dt>Rating easy to find</dt>
+      <dd><%= @bathroom.rating_easy_to_find %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/bathrooms" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/bathrooms/<%= @bathroom.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_bathroom/<%= @bathroom.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
