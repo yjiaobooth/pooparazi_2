@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "bathrooms#index"
   # Routes for the User resource:
   # CREATE
   get "/users/new", :controller => "users", :action => "new"
