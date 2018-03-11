@@ -13,7 +13,13 @@
       </dd>
 
       <dt>Neiborhood</dt>
-      <dd><%= @bathroom.neiborhood_id %></dd>
+      <dd>
+        <% if @bathroom.neiborhood.present? %>
+          <a href="/neighborhoods/<%= @bathroom.neiborhood_id %>">
+            <%= @bathroom.neiborhood.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Notes</dt>
       <dd><%= @bathroom.notes %></dd>

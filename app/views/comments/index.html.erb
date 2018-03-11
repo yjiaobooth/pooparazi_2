@@ -17,9 +17,21 @@
 
       <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.user.email %></td>
+        <td>
+          <% if comment.user.present? %>
+            <a href="/users/<%= comment.user.id %>">
+              <%= comment.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= comment.helpful_or_not %></td>
-        <td><%= comment.bathroom.created_at %></td>
+        <td>
+          <% if comment.bathroom.present? %>
+            <a href="/bathrooms/<%= comment.bathroom.id %>">
+              <%= comment.bathroom.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/comments/<%= comment.id %>" class="btn btn-primary">Show</a>
           <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">Edit</a>

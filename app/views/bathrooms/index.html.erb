@@ -30,7 +30,13 @@
       <% @bathrooms.each do |bathroom| %>
       <tr>
         <td><%= bathroom.address %></td>
-        <td><%= bathroom.neiborhood.name %></td>
+        <td>
+          <% if bathroom.neiborhood.present? %>
+            <a href="/neighborhoods/<%= bathroom.neiborhood.id %>">
+              <%= bathroom.neiborhood.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= bathroom.notes %></td>
         <td><%= bathroom.comment_id %></td>
         <td><%= bathroom.public_or_not %></td>
