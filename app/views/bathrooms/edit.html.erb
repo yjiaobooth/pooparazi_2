@@ -33,7 +33,7 @@
           Neiborhood
         </label>
 
-        <input type="text" id="neiborhood_id" name="neiborhood_id" placeholder="Neiborhood" class="form-control" value="<%= @bathroom.neiborhood_id %>">
+        <%= select_tag(:neiborhood_id, options_from_collection_for_select(Neighborhood.all, :id, :name, @bathroom.neiborhood_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for notes -->
